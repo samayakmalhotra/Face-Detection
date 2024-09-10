@@ -1,0 +1,145 @@
+<html>
+<head>
+<title>Face Edge Detection using Different Edge detection filters </title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+<p><h1 align="center">Face Edge Detection using Different Edge detection filters </h1></p>
+<div class="container"> 
+<div class="row">
+    <h2>Select a file to upload</h2>
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+   
+    <form method="post" action="/" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="file" class="form-control" autocomplete="off" required>
+            </p>
+        </dl>
+        <p>
+            <input type="submit" value="Submit" class="btn btn-info">
+        </p>
+    </form>
+    {% if filename %}
+    <div class="py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="card">
+                <div class="card-block">
+                  <h4 class="card-title">Input Image</h4>
+                  <img src="{{ url_for('display_image', filename=filename) }}" width="125" height="175">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card">
+                <div class="card-block">
+                    <h4 class="card-title">Sobel X Filter</h4>
+                    <img src="{{ url_for('display_image', filename= sobelx_filename) }}" width="125" height="175">
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card">
+                <div class="card-block">
+                    <h4 class="card-title">SobelY Transformation</h4>
+                    <img src="{{ url_for('display_image', filename= sobely_filename) }}" width="125" height="175">
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                  <div class="card-block">
+                      <h4 class="card-title">SobelXY Edge Detection</h4>
+                      <img src="{{ url_for('display_image', filename= sobelxy_filename) }}" width="125" height="175">
+                    </div>
+                </div>
+              </div>
+          </div><br>
+          <div class="row">
+           
+            <div class="col-md-3">
+              <div class="card">
+                <div class="card-block">
+                    <h4 class="card-title">Laplacian Edge detection</h4>
+                    <img src="{{ url_for('display_image', filename= laplacian_filename) }}" width="125" height="175">
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card">
+                <div class="card-block">
+                    <h4 class="card-title">Canny Edge Detection</h4>
+                    <img src="{{ url_for('display_image', filename= canny_filename) }}" width="125" height="175">
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                  <div class="card-block">
+                      <h4 class="card-title">PrewittX Filter</h4>
+                      <img src="{{ url_for('display_image', filename= prewittx_filename) }}" width="125" height="175">
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <div class="card-block">
+                      <h4 class="card-title">Blurred Edge Detection</h4>
+                      <img src="{{ url_for('display_image', filename= blurred_filename) }}" width="125" height="175">
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="card">
+                    <div class="card-block">
+                        <h4 class="card-title">Mean Thresholding</h4>
+                        <img src="{{ url_for('display_image', filename= meanthreshold_filename) }}" width="125" height="175">
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="card">
+                    <div class="card-block">
+                        <h4 class="card-title">PrewittY Filter</h4>
+                        <img src="{{ url_for('display_image', filename= prewitty_filename) }}" width="125" height="175">
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="card">
+                    <div class="card-block">
+                        <h4 class="card-title">Roberts Filter Detection</h4>
+                        <img src="{{ url_for('display_image', filename= roberts_filename) }}" width="125" height="175">
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="card">
+                    <div class="card-block">
+                        <h4 class="card-title"> Binary Mask </h4>
+                        <img src="{{ url_for('display_image', filename= meanthreshold_filename) }}" width="125" height="175">
+                    </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+       
+    {% endif %}
+</div>
+</div>
+</body>
+</html>
